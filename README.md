@@ -127,4 +127,4 @@ This base path is needed for the GitHub Pages deployment at `/memory-cart/`. The
 ## Live Links
 
 - https://engineermrezai.github.io/memory-cart/
-- https://memory-cart-ed0und3pk-engineermrezais-projects.vercel.app/
+- https://memory-cart-iec0afspt-engineermrezais-projects.vercel.app/
