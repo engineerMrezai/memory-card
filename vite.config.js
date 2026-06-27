@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/memory-cart/',
+  base: process.env.GITHUB_ACTIONS ? '/memory-cart/' : '/',
   plugins: [react()],
 })
