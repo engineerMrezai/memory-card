@@ -1,0 +1,101 @@
+@import '../theme.css';
+
+.card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: none;
+  perspective: 800px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(0deg) rotate(var(--card-tilt));
+  transition: transform var(--transition-flip);
+  transform-style: preserve-3d;
+}
+
+.card--revealed .card-inner {
+  transform: rotateY(180deg) rotate(0deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-md);
+  backface-visibility: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.card-face--back {
+  background: repeating-linear-gradient(
+      135deg,
+      var(--color-pine-700) 0px,
+      var(--color-pine-700) 10px,
+      var(--color-pine-800) 10px,
+      var(--color-pine-800) 20px
+    );
+  border: 2px dashed var(--color-gold-500);
+  color: var(--color-gold-400);
+}
+
+.card-face--front {
+  background: var(--color-paper-100);
+  color: var(--color-ink-950);
+  transform: rotateY(180deg);
+  padding: var(--space-2);
+  overflow: hidden;
+}
+
+.card-face--front img {
+  width: 100%;
+  flex: 1;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.card-fallback {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-paper-200);
+  border-radius: var(--radius-sm);
+  color: var(--color-pine-700);
+}
+
+.card-label {
+  font-family: var(--font-display);
+  font-size: clamp(0.6rem, 1.6vw, 0.8rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(0deg) rotate(0deg) translateY(-3px);
+}
+
+.card--revealed:hover .card-inner {
+  transform: rotateY(180deg) rotate(0deg) translateY(-3px);
+}
+
+.card--matched .card-face--front {
+  box-shadow: 0 0 0 3px var(--color-leaf-400), var(--shadow-card);
+}
+
+.card--matched {
+  cursor: default;
+}
+
+.card:focus-visible .card-inner {
+  outline: 2px solid var(--color-gold-300);
+  outline-offset: 3px;
+}

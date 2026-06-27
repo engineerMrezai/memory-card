@@ -1,0 +1,107 @@
+@import '../theme.css';
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 18, 15, 0.72);
+  backdrop-filter: blur(3px);
+  padding: var(--space-4);
+  z-index: 50;
+}
+
+.modal-card {
+  position: relative;
+  width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-5);
+  background: linear-gradient(160deg, var(--color-pine-800), var(--color-pine-900));
+  border: 1px solid var(--color-pine-600);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+  color: var(--color-paper-100);
+  text-align: center;
+}
+
+.modal-card svg {
+  color: var(--color-gold-400);
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.modal-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-2);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+  background: var(--color-pine-700);
+  color: var(--color-paper-100);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: var(--color-coral-500);
+}
+
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.size-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-4) var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--color-ink-950);
+  box-shadow: inset 0 0 0 1px var(--color-pine-600);
+  color: var(--color-paper-100);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.size-option:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 0 0 1px var(--color-gold-400);
+}
+
+.size-option--active {
+  background: var(--color-gold-400);
+  color: var(--color-ink-950);
+  box-shadow: inset 0 0 0 1px var(--color-gold-500);
+}
+
+.size-number {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.size-caption {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
