@@ -10,21 +10,29 @@ const COLUMNS_BY_SIZE = {
 
 export default function GameBoard({ cards, boardSize, isLoading, onFlip }) {
   const columns = COLUMNS_BY_SIZE[boardSize] || 4
+  const rows = Math.ceil(boardSize / columns) || 1
 
   if (isLoading) {
     return (
-      <div className="board-loading">
-        <div className="loading-spinner" />
-        <p>Scouting the savanna for animals...</p>
-      </div>
+        <div className="board-stage">
+          <div className="board-loading">
+            <div className="loading-spinner" />
+            <p>Scouting the savanna for animals...</p>
+          </div>
+        </div>
     )
   }
 
   return (
-    <div className="board-grid" style={{ '--board-columns': columns }}>
-      {cards.map((card, index) => (
-        <Card key={card.id} card={card} index={index} onFlip={onFlip} />
-      ))}
-    </div>
+      <div className="board-stage">
+        <div
+            className="board-grid"
+            style={{ '--board-columns': columns, '--board-rows': rows }}
+        >
+          {cards.map((card, index) => (
+              <Card key={card.id} card={card} index={index} onFlip={onFlip} />
+          ))}
+        </div>
+      </div>
   )
 }

@@ -8,6 +8,7 @@
 
 html, body {
   min-height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -19,7 +20,7 @@ body {
 }
 
 #root {
-  min-height: 100svh;
+  height: 100svh;
 }
 
 button {
